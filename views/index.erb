@@ -1,0 +1,9 @@
+ <% @transaction.each do |transaction| %>
+   <div class="order-list">
+     <p>Merchant: <%= transaction.merchant.merchant %></p>
+     <p>Category(tag): <%= transaction.tag.tag %></p>
+     <p>Amount: <%= transaction.price %></p>
+     <p>Date: <%= transaction.transaction_date %></p>
+     <p><a class="btn" href="/transaction/<%= transaction.id %>"> Edit Transaction</a></p>
+   </div>
+<% end %>
