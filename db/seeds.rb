@@ -42,7 +42,7 @@ merchant2 = Merchant.new({
 merchant2.save()
 
 merchant3 = Merchant.new({
-  "merchant" => "B&Q"
+  "merchant" => "Jewson"
   })
 merchant3.save()
 

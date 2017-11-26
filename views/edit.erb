@@ -1,0 +1,51 @@
+<form method="post" action="/transaction/<%= @transaction.id %>">
+  <input type="hidden" name="_method" value="put">
+
+  <div class="field-group">
+    <label for="merchant-field" class="label">Merchant:</label>
+    <div class="field">
+      <select name="merchant" id="merchant-slection">
+        <% @merchant.each do |merchant| %>
+          <option value=<%= merchant.id %>><%=merchant.merchant%></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="tag-selection" class="label">Category(tag):</label>
+    <div class="field">
+      <select name="tag" id="tag-slection">
+        <% @tag.each do |tag| %>
+          <option value=<%= tag.id %>><%=tag.tag%></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="last-name-field">Amount:</label>
+    <div class="field">
+      <input
+      type="text"
+      name="price"
+      id="last-name-field"
+      value="<%= @transaction.price %>"
+      />
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="age-field">Date:</label>
+    <div class="field">
+      <input
+      type="number"
+      name="date"
+      id="age-field"
+      value="<%= @transaction.transaction_date() %>"
+      />
+    </div>
+  </div>
+
+  <button class="button">Update Transaction</button>
+</form>

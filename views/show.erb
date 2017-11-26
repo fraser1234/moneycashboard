@@ -1,0 +1,10 @@
+<p>Merchant: <%= @transaction.merchant.merchant %></p>
+<p>Category(tag): <%= @transaction.tag.tag %></p>
+<p>Amount: <%= @transaction.price %></p>
+<p>Date: <%= @transaction.transaction_date %></p>
+<p><a class="button" href="/transaction/<%= @transaction.id %>/edit">Edit Transaction</a></p>
+
+<form method="post" action="/transaction/<%= @transaction.id %>">
+  <input type="hidden" name="_method" value="delete">
+  <button class="button">Delete Transaction</button>
+</form>

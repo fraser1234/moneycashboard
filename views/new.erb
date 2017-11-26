@@ -1,0 +1,50 @@
+<form method="post" action="/transaction">
+
+  <div class="field-group">
+    <label for="merchant-field" class="label">Merchant:</label>
+    <div class="field">
+      <select name="merchant" id="merchant-slection">
+        <option value=1>Tesco</option>
+        <option value=2>Asda</option>
+        <option value=3>Jewson</option>
+        <option value=4>House of Fraser</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="tag-selection" class="label">Category(tag):</label>
+    <div class="field">
+      <select name="tag" id="tag-slection">
+        <option value=1>Clothing</option>
+        <option value=2>Hardware</option>
+        <option value=3>Food</option>
+        <option value=4>Drink</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="last-name-field">Amount:</label>
+    <div class="field">
+      <input
+      type="text"
+      name="price"
+      id="last-name-field"
+      />
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="age-field">Date:</label>
+    <div class="field">
+      <input
+      type="number"
+      name="date"
+      id="age-field"
+      />
+    </div>
+  </div>
+
+  <button class="button">Confirm Transaction</button>
+</form>
