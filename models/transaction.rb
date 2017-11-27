@@ -97,11 +97,19 @@ class Transaction
     sql = "SELECT merchants.*
     FROM merchants
     INNER JOIN transactions
-    ON merchants.id = transactions.tag_id
+    ON merchants.id = transactions.merchant_id
     WHERE transactions.id = $1"
     values = [@id]
     result = SqlRunner.run(sql, values).first
     return Merchant.new(result)
+  end
+
+  def self.total_spend
+    sql = "SELECT SUM (price)
+    FROM transactions"
+    values = []
+    result = SqlRunner.run(sql, values)
+    return result [0]['sum']
   end
 
 end

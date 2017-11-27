@@ -6,7 +6,7 @@
     <div class="field">
       <select name="merchant_id" id="merchant-selection">
         <% @merchants.each do |merchant| %>
-          <option value=<%= merchant.id %>><%=merchant.merchant_name%></option>
+          <option value=<%= merchant.id %><%= "selected" if @transactions.merchant_id == merchant.id %>><%=merchant.merchant_name%></option>
         <% end %>
       </select>
     </div>
@@ -17,7 +17,8 @@
     <div class="field">
       <select name="tag_id" id="tag-selection">
         <% @tags.each do |tag| %>
-          <option value=<%= tag.id %>><%=tag.tag_name%></option>
+          <option value=<%= tag.id %><%= "selected" if @transactions.tag_id == tag.id
+           %>><%=tag.tag_name%></option>
         <% end %>
       </select>
     </div>

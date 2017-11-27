@@ -70,4 +70,11 @@ class Tag
     SqlRunner.run( sql, values )
   end
 
+  def food(id)
+    sql = "SELECT * FROM transactions WHERE transactions.tag_id = $1"
+    values = [id]
+    food = SqlRunner.run(sql, values)
+    result =
+  end
+
 end

@@ -17,9 +17,16 @@
     <% end %>
   </tr>
 </table>
+<h4> Search by Category(tag):</h4>
+<button><a class="button" >Food</a></button>
+<button><a class="button" >Drink</a></button>
+<button><a class="button" >Hardware</a></button>
+<button><a class="button" >Clothing</a></button>
 
-<h4> To enter a new transaction, click below</h4>
+<h4> To enter a new transaction, click below:</h4>
 <button><a class="button" href="/transaction/new">New Transaction</a></button>
 
 
+
 <!-- enter budget stuff here -->
+<h4> Your total spending is: £<%= Transaction.total_spend %></h4>

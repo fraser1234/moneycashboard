@@ -49,3 +49,7 @@ delete '/transaction/:id' do # delete
   transaction.delete()
   redirect to '/transaction'
 end
+
+# get '/transaction/food' do
+#   erb(:food)
+# end
