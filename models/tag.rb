@@ -1,26 +1,27 @@
 require_relative('../db/sql_runner.rb')
-require_relative('./transaction.rb')
+require_relative('transaction.rb')
 
 class Tag
 
-  attr_reader :id, :tag
+  attr_reader :id
+  attr_accessor :tag_name
 
   def initialize(options)
-    @id = options['options'].to_i
-    @tag = options['tag']
+    @id = options['id'].to_i
+    @tag_name = options['tag_name']
   end
 
   def save()
     sql = "INSERT INTO tags
     (
-      tag
+      tag_name
     )
     VALUES
     (
       $1
     )
     RETURNING *"
-    values = [@tag]
+    values = [@tag_name]
     tag_data = SqlRunner.run(sql, values)
     @id = tag_data.first()['id'].to_i
   end
@@ -29,13 +30,13 @@ class Tag
     sql = "UPDATE tags
     SET
     (
-      tag
+      tag_name
     ) =
     (
       $1
     )
-    WHERE id = $5"
-    values = [@tag, @id]
+    WHERE id = $2"
+    values = [@tag_name, @id]
     SqlRunner.run( sql, values )
   end
 

@@ -5,12 +5,12 @@ DROP TABLE tags;
 
 CREATE TABLE merchants (
   id serial4 PRIMARY KEY,
-  merchant VARCHAR(255)
+  merchant_name VARCHAR(255)
 );
 
 CREATE TABLE tags (
   id serial4 PRIMARY KEY,
-  tag VARCHAR(255)
+  tag_name VARCHAR(255)
 );
 
 CREATE TABLE transactions (

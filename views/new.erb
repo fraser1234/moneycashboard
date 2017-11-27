@@ -1,13 +1,12 @@
 <form method="post" action="/transaction">
 
   <div class="field-group">
-    <label for="merchant-field" class="label">Merchant:</label>
+    <label for="merchant-selection" class="label">Merchant:</label>
     <div class="field">
-      <select name="merchant" id="merchant-slection">
-        <option value=1>Tesco</option>
-        <option value=2>Asda</option>
-        <option value=3>Jewson</option>
-        <option value=4>House of Fraser</option>
+      <select name="merchant_id" id="merchant-selection">
+        <% for merchant in @merchants %>
+        <option value="<%= merchant.id %>"><%= merchant.merchant_name%></option>
+        <% end %>
       </select>
     </div>
   </div>
@@ -15,33 +14,32 @@
   <div class="field-group">
     <label for="tag-selection" class="label">Category(tag):</label>
     <div class="field">
-      <select name="tag" id="tag-slection">
-        <option value=1>Clothing</option>
-        <option value=2>Hardware</option>
-        <option value=3>Food</option>
-        <option value=4>Drink</option>
+      <select name="tag_id" id="tag-selection">
+        <% for tag in @tags %>
+        <option value="<%= tag.id %>"><%= tag.tag_name%></option>
+        <% end %>
       </select>
     </div>
   </div>
 
   <div class="field-group">
-    <label for="last-name-field">Amount:</label>
+    <label for="amount-field">Amount:</label>
     <div class="field">
       <input
       type="text"
       name="price"
-      id="last-name-field"
+      id="amount-field"
       />
     </div>
   </div>
 
   <div class="field-group">
-    <label for="age-field">Date:</label>
+    <label for="date-field">Date:</label>
     <div class="field">
       <input
-      type="number"
-      name="date"
-      id="age-field"
+      type="date"
+      name="transaction_date"
+      id="date-field"
       />
     </div>
   </div>

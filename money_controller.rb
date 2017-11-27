@@ -4,36 +4,43 @@ require( 'pry-byebug' )
 
 require_relative( './models/transaction' )
 
+get '/' do
+  erb(:home)
+end
+
 get '/transaction' do # index
-  @transaction = Transaction.all()
+  @transactions = Transaction.all()
   erb( :index )
 end
 
 get '/transaction/new' do # new
+  @merchants = Merchant.all
+  @tags = Tag.all
   erb( :new )
 end
 
 post '/transaction' do # create
-  @transaction = Transaction.new( params )
-  @transaction.save()
+  @transactions = Transaction.new( params )
+  @transactions.save()
   redirect to "/transaction"
 end
 
 get '/transaction/:id' do # show
-  @transaction = Transaction.find( params[:id] )
+  @transactions = Transaction.find( params[:id] )
   erb( :show )
 end
 
 
 get '/transaction/:id/edit' do # edit
-  @transaction = Transaction.find( params[:id] )
-  @tag = Tag.all
-  @merchant = Merchant.all
+  @transactions = Transaction.find( params[:id] )
+  @tags = Tag.all
+  @merchants = Merchant.all
   erb( :edit )
 end
 
 put '/transaction/:id' do # update
-  Transaction.new( params ).update
+  transaction = Transaction.new( params )
+  transaction.update
   redirect to '/transaction'
 end
 

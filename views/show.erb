@@ -1,10 +1,10 @@
-<p>Merchant: <%= @transaction.merchant.merchant %></p>
-<p>Category(tag): <%= @transaction.tag.tag %></p>
-<p>Amount: <%= @transaction.price %></p>
-<p>Date: <%= @transaction.transaction_date %></p>
-<p><a class="button" href="/transaction/<%= @transaction.id %>/edit">Edit Transaction</a></p>
+<p>Merchant: <%= @transactions.merchant.merchant_name %></p>
+<p>Category(tag): <%= @transactions.tag.tag_name %></p>
+<p>Amount: <%= @transactions.price %></p>
+<p>Date: <%= @transactions.transaction_date %></p>
+<p><button><a class="button" href="/transaction/<%= @transactions.id %>/edit">Edit Transaction</a></button></p>
 
-<form method="post" action="/transaction/<%= @transaction.id %>">
+<form method="post" action="/transaction/<%= @transactions.id %>">
   <input type="hidden" name="_method" value="delete">
   <button class="button">Delete Transaction</button>
 </form>

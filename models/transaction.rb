@@ -1,10 +1,12 @@
+require('pry')
 require_relative('../db/sql_runner.rb')
-require_relative('./merchant.rb')
-require_relative('./tag.rb')
+require_relative('merchant.rb')
+require_relative('tag.rb')
 
 class Transaction
 
-  attr_reader :id, :merchant_id, :tag_id, :price, :transaction_date
+  attr_reader :id
+  attr_accessor :merchant_id, :tag_id, :price, :transaction_date
 
   def initialize(options)
     @id = options['id'].to_i

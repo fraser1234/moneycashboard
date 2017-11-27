@@ -1,9 +1,25 @@
- <% @transaction.each do |transaction| %>
-   <div class="order-list">
-     <p>Merchant: <%= transaction.merchant.merchant %></p>
-     <p>Category(tag): <%= transaction.tag.tag %></p>
-     <p>Amount: <%= transaction.price %></p>
-     <p>Date: <%= transaction.transaction_date %></p>
-     <p><a class="btn" href="/transaction/<%= transaction.id %>"> Show Transaction</a></p>
-   </div>
-<% end %>
+<h4> All Transactions:</h4>
+
+<table style="width:50%">
+  <tr>
+    <th>Merchant</th>
+    <th>Category(tag)</th>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+  <% @transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.merchant.merchant_name %></td>
+    <td><%= transaction.tag.tag_name %></td>
+    <td><%= transaction.price %></td>
+    <td><%= transaction.transaction_date %></td>
+    <td><button><a class="button" href="/transaction/<%= transaction.id %>"> Edit</a></button></td>
+    <% end %>
+  </tr>
+</table>
+
+<h4> To enter a new transaction, click below</h4>
+<button><a class="button" href="/transaction/new">New Transaction</a></button>
+
+
+<!-- enter budget stuff here -->

@@ -1,26 +1,27 @@
 require_relative('../db/sql_runner.rb')
-require_relative('./transaction.rb')
+require_relative('transaction.rb')
 
 class Merchant
 
-  attr_reader :id, :merchant
+  attr_reader :id
+  attr_accessor :merchant_name
 
   def initialize(options)
-    @id = options['options'].to_i
-    @merchant = options['merchant']
+    @id = options['id'].to_i
+    @merchant_name = options['merchant_name']
   end
 
   def save()
     sql = "INSERT INTO merchants
     (
-      merchant
+      merchant_name
     )
     VALUES
     (
       $1
     )
     RETURNING *"
-    values = [@merchant]
+    values = [@merchant_name]
     merchant_data = SqlRunner.run(sql, values)
     @id = merchant_data.first()['id'].to_i
   end
@@ -29,13 +30,13 @@ class Merchant
     sql = "UPDATE merchants
     SET
     (
-      merchant
+      merchant_name
     ) =
     (
       $1
     )
-    WHERE id = $5"
-    values = [@merchant, @id]
+    WHERE id = $2"
+    values = [@merchant_name, @id]
     SqlRunner.run( sql, values )
   end
 
@@ -47,7 +48,7 @@ class Merchant
   end
 
   def self.all()
-    sql = "SELECT * FROM tags"
+    sql = "SELECT * FROM merchants"
     values = []
     merchants = SqlRunner.run( sql, values )
     result = merchants.map { |merchant| Merchant.new( merchant ) }
