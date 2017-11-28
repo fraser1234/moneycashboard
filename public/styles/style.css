@@ -39,7 +39,12 @@ h4{
 .button-centre{
   display: flex;
   justify-content: center;
-}
+  }
+
+.p-show{
+  display: flex;
+  justify-content: center;
+  }
 
 table {
     border-collapse: collapse;

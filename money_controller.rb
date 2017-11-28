@@ -32,7 +32,7 @@ end
 
 
 get '/transaction/:id/edit' do # edit
-  @transactions = Transaction.find( params[:id] )
+  @transaction = Transaction.find( params[:id] )
   @tags = Tag.all
   @merchants = Merchant.all
   erb( :edit )

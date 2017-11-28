@@ -1,10 +1,15 @@
+<div class="p-show">
 <p>Merchant: <%= @transactions.merchant.merchant_name %></p>
 <p>Category(tag): <%= @transactions.tag.tag_name %></p>
 <p>Amount: <%= @transactions.price %></p>
 <p>Date: <%= @transactions.transaction_date %></p>
-<p><button><a class="button" href="/transaction/<%= @transactions.id %>/edit">Edit Transaction</a></button></p>
-
+</div>
+<div class="button-centre">
+  <p><button><a class="button" href="/transaction/<%= @transactions.id %>/edit">Edit Transaction</a></button></p>
+</div>
+<div class="button-centre">
 <form method="post" action="/transaction/<%= @transactions.id %>">
   <input type="hidden" name="_method" value="delete">
   <button class="button">Delete Transaction</button>
 </form>
+</div>
