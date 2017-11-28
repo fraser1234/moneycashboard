@@ -7,10 +7,10 @@ body, html {
 body{
   background-image: url("../images/piggy_bank.jpg");
   height: 100%;
-  wi
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 h1{
