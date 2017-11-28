@@ -9,7 +9,7 @@ get '/' do
 end
 
 get '/transaction' do # index
-  @transactions = Transaction.all()
+  @transactions = Transaction.all().reverse
   erb( :index )
 end
 
@@ -50,6 +50,7 @@ delete '/transaction/:id' do # delete
   redirect to '/transaction'
 end
 
-# get '/transaction/food' do
-#   erb(:food)
-# end
+get '/transaction/by_tag/:id' do
+  @transaction_by_tag = Transaction.by_tag(params[:id])
+  erb(:by_tag)
+end
