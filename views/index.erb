@@ -13,19 +13,22 @@
     <td><%= transaction.tag.tag_name %></td>
     <td><%= transaction.price %></td>
     <td><%= transaction.transaction_date %></td>
-    <td><button><a class="button" href="/transaction/<%= transaction.id %>"> Edit</a></button></td>
+    <td><button><a class="button" href="/transaction/<%= transaction.id %>"> Show</a></button></td>
     <% end %>
   </tr>
 </table>
 <h4> Search by Category(tag):</h4>
+<div class="button-centre">
 <button><a class="button" href="/transaction/by_tag/3">Food</a></button>
 <button><a class="button" href="/transaction/by_tag/4">Drink</a></button>
 <button><a class="button" href="/transaction/by_tag/2">Hardware</a></button>
 <button><a class="button" href="/transaction/by_tag/1">Clothing</a></button>
+</div>
 
 <h4> To enter a new transaction, click below:</h4>
+<div class="button-centre">
 <button><a class="button" href="/transaction/new">New Transaction</a></button>
-
+</div>
 
 
 <!-- enter budget stuff here -->
