@@ -124,4 +124,11 @@ class Transaction
     return final_result
   end
 
+  def self.budget
+    result = 1000 - Transaction.total_spend.to_i()
+    return result
+    update()
+  end
+
+
 end
