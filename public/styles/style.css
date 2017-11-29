@@ -46,6 +46,18 @@ h4{
   justify-content: center;
   }
 
+#table-wrapper {
+    position:relative;
+    }
+
+#table-scroll {
+    height:400px;
+    overflow:auto;
+    margin-top:20px;
+    }
+
+
+
 table {
     border-collapse: collapse;
     width: 100%;

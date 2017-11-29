@@ -1,22 +1,28 @@
 <h4> All Transactions:</h4>
+<div id="table-wrapper">
+  <div id="table-scroll">
+    <table style="width:50%">
+      <thead>
+        <tr>
+          <th>Merchant</th>
+          <th>Category(tag)</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.merchant.merchant_name %></td>
+        <td><%= transaction.tag.tag_name %></td>
+        <td><%= transaction.price %></td>
+        <td><%= transaction.transaction_date %></td>
+        <td><button><a class="button" href="/transactions/<%= transaction.id %>"> Show</a></button></td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>
 
-<table style="width:50%">
-  <tr>
-    <th>Merchant</th>
-    <th>Category(tag)</th>
-    <th>Amount</th>
-    <th>Date</th>
-  </tr>
-  <% @transactions.each do |transaction| %>
-  <tr>
-    <td><%= transaction.merchant.merchant_name %></td>
-    <td><%= transaction.tag.tag_name %></td>
-    <td><%= transaction.price %></td>
-    <td><%= transaction.transaction_date %></td>
-    <td><button><a class="button" href="/transactions/<%= transaction.id %>"> Show</a></button></td>
-    <% end %>
-  </tr>
-</table>
 <h4> Search by:</h4>
 <div class="button-centre">
 <button><a class="button" href="/merchants">Merchant</a></button>
