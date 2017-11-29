@@ -54,3 +54,14 @@ get '/transaction/by_tag/:id' do
   @transaction_by_tag = Transaction.by_tag(params[:id])
   erb(:by_tag)
 end
+
+
+#new tag/edit tag
+get '/tags/new' do #new
+   erb(:new_tag)
+end
+
+post '/tags' do
+  Tag.new(params).save()
+  redirect to "/transaction"
+end
