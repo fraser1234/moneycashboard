@@ -17,4 +17,4 @@
     <% end %>
   </tr>
 </table>
-<h4> Your total spending is: £<%= Tag.total_spend_tag(@id) %></h4>
+<h4> Your total spending is: £<%= Transaction.total_spend_tag(transaction.tag.id) %></h4>

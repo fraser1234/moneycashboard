@@ -142,5 +142,22 @@ class Transaction
     update()
   end
 
+  def self.total_spend_tag(id)
+    sql = "SELECT SUM (price)
+    FROM transactions
+    WHERE tag_id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return result [0]['sum']
+  end
+
+  def self.total_spend_merchant(id)
+    sql = "SELECT SUM (price)
+    FROM transactions
+    WHERE merchant_id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return result [0]['sum']
+  end
 
 end

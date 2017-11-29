@@ -17,4 +17,4 @@
     <% end %>
   </tr>
 </table>
-<h4> Your total spending is: £<%= Merchant.total_spend_merchant %></h4>
+<h4> Your total spending is: £<%= Transaction.total_spend_merchant(transaction.merchant.id) %></h4>

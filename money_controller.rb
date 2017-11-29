@@ -65,7 +65,6 @@ end
 
 
 get '/transactions/by_tag/:id' do
-  @id = params[:id]
   @transaction_by_tag = Transaction.by_tag(params[:id])
   erb(:"tag/by_tag")
 end
