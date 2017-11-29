@@ -1,4 +1,4 @@
-<h4> Showing all transactions by Category:</h4>
+<h4> Showing all transactions by Merchant:</h4>
 
 <table style="width:50%">
   <tr>
@@ -7,7 +7,7 @@
     <th>Amount</th>
     <th>Date</th>
   </tr>
-  <% for transaction in @transaction_by_tag%>
+  <% for transaction in @transaction_by_merchant%>
   <tr>
     <td><%= transaction.merchant.merchant_name %></td>
     <td><%= transaction.tag.tag_name %></td>
@@ -17,4 +17,4 @@
     <% end %>
   </tr>
 </table>
-<h4> Your total spending is: £<%= Tag.total_spend_tag(@id) %></h4>
+<h4> Your total spending is: £<%= Merchant.total_spend_merchant %></h4>

@@ -70,13 +70,12 @@ class Tag
     SqlRunner.run( sql, values )
   end
 
-  # def food(id)
-  #   sql = "SELECT * FROM transactions
-  #   WHERE transactions.tag_id = $1"
-  #   values = [id]
-  #   food = SqlRunner.run(sql, values)
-  #   result = Tag.new( food.first )
-  #   return result
-  # end
-
+  def self.total_spend_tag(id)
+    sql = "SELECT SUM (price)
+    FROM transactions
+    WHERE tag_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result [0]['sum']
+  end
 end

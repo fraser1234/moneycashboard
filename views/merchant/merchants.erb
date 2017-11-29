@@ -1,0 +1,9 @@
+<h4>View Transactions by Merchant</h4>
+
+<% for merchant in @merchants %>
+<div class="button-centre">
+<form action="/transactions/by_merchant/<%= merchant.id %>" method="GET">
+<button><%= merchant.merchant_name %></button>
+</form>
+</div>
+<% end %>

@@ -124,6 +124,18 @@ class Transaction
     return final_result
   end
 
+  def self.by_merchant(merchant_id)
+    sql = "SELECT *
+    FROM transactions
+    INNER JOIN merchants
+    ON merchants.id = transactions.merchant_id
+    WHERE merchants.id = $1"
+    values = [merchant_id]
+    result = SqlRunner.run(sql, values)
+    final_result= result.map { |transaction| Transaction.new( transaction ) }
+    return final_result
+  end
+
   def self.budget
     result = 25750 - Transaction.total_spend.to_i()
     return result

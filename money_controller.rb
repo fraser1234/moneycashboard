@@ -44,16 +44,37 @@ put '/transactions/:id' do # update
   redirect to '/transactions'
 end
 
-delete '/transactions/:id' do # delete
+delete '/transactions/:id' do # delete for transaction
   transaction = Transaction.find( params[:id] )
   transaction.delete()
   redirect to '/transactions'
 end
 
+delete '/transactions/by_tag/:id' do # delete for tag
+  tag = Tag.find( params[:id] )
+  tag.delete()
+  redirect to '/transactions'
+end
+
+delete '/transactions/by_merchant/:id' do # delete for merchants
+  merchant = Merchant.find( params[:id] )
+  merchant.delete()
+  redirect to '/transactions'
+end
+
+
+
 get '/transactions/by_tag/:id' do
+  @id = params[:id]
   @transaction_by_tag = Transaction.by_tag(params[:id])
   erb(:"tag/by_tag")
 end
+
+get '/transactions/by_merchant/:id' do
+  @transaction_by_merchant = Transaction.by_merchant(params[:id])
+  erb(:"merchant/by_merchant")
+end
+
 
 
 #new tag/edit tag
