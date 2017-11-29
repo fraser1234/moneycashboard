@@ -5,10 +5,10 @@
 <p>Date: <%= @transactions.transaction_date %></p>
 </div>
 <div class="button-centre">
-  <p><button><a class="button" href="/transaction/<%= @transactions.id %>/edit">Edit Transaction</a></button></p>
+  <p><button><a class="button" href="/transactions/<%= @transactions.id %>/edit">Edit Transaction</a></button></p>
 </div>
 <div class="button-centre">
-<form method="post" action="/transaction/<%= @transactions.id %>">
+<form method="post" action="/transactions/<%= @transactions.id %>">
   <input type="hidden" name="_method" value="delete">
   <button class="button">Delete Transaction</button>
 </form>

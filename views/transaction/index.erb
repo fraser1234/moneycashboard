@@ -13,7 +13,7 @@
     <td><%= transaction.tag.tag_name %></td>
     <td><%= transaction.price %></td>
     <td><%= transaction.transaction_date %></td>
-    <td><button><a class="button" href="/transaction/<%= transaction.id %>"> Show</a></button></td>
+    <td><button><a class="button" href="/transactions/<%= transaction.id %>"> Show</a></button></td>
     <% end %>
   </tr>
 </table>
@@ -26,7 +26,7 @@
 <h4> To enter a new transaction, click below:</h4>
 <div class="button-centre">
   <button><a class="button" href="/merchants/new">New Merchant</a></button>
-<button><a class="button" href="/transaction/new">New Transaction</a></button>
+<button><a class="button" href="/transactions/new">New Transaction</a></button>
 <button><a class="button" href="/tags/new">New Tag</a></button>
 </div>
 

@@ -8,80 +8,80 @@ get '/' do
   erb(:home)
 end
 
-get '/transaction' do # index
+get '/transactions' do # index
   @transactions = Transaction.all().reverse
-  erb( :index )
+  erb( :"transaction/index" )
 end
 
-get '/transaction/new' do # new
+get '/transactions/new' do # new
   @merchants = Merchant.all
   @tags = Tag.all
-  erb( :new )
+  erb( :"transaction/new" )
 end
 
-post '/transaction' do # create
+post '/transactions' do # create
   @transactions = Transaction.new( params )
   @transactions.save()
-  redirect to "/transaction"
+  redirect to "/transactions"
 end
 
-get '/transaction/:id' do # show
+get '/transactions/:id' do # show
   @transactions = Transaction.find( params[:id] )
-  erb( :show )
+  erb( :"transaction/show" )
 end
 
 
-get '/transaction/:id/edit' do # edit
+get '/transactions/:id/edit' do # edit
   @transaction = Transaction.find( params[:id] )
   @tags = Tag.all
   @merchants = Merchant.all
-  erb( :edit )
+  erb( :"transaction/edit" )
 end
 
-put '/transaction/:id' do # update
+put '/transactions/:id' do # update
   transaction = Transaction.new( params )
   transaction.update
-  redirect to '/transaction'
+  redirect to '/transactions'
 end
 
-delete '/transaction/:id' do # delete
+delete '/transactions/:id' do # delete
   transaction = Transaction.find( params[:id] )
   transaction.delete()
-  redirect to '/transaction'
+  redirect to '/transactions'
 end
 
-get '/transaction/by_tag/:id' do
+get '/transactions/by_tag/:id' do
   @transaction_by_tag = Transaction.by_tag(params[:id])
-  erb(:by_tag)
+  erb(:"tag/by_tag")
 end
 
 
 #new tag/edit tag
 get '/tags/new' do #new
-   erb(:new_tag)
+   erb(:"tag/new_tag")
 end
 
 post '/tags' do
   Tag.new(params).save()
-  redirect to "/transaction"
+  redirect to "/transactions"
 end
 
 get '/tags' do
   @tags = Tag.all()
-  erb( :tags )
+  erb( :"tag/tags" )
 end
 
 #new merchant
 get '/merchants/new' do
-  erb(:new_merchant)
+  erb(:"merchant/new_merchant")
 end
 
 post '/merchants' do
   Merchant.new(params).save()
-  redirect to "/transaction"
+  redirect to "/transactions"
 end
 
 get '/merchants' do
   @merchants = Merchant.all()
-  erb( :merchants )
+  erb( :"merchant/merchants" )
 end
