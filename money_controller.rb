@@ -65,3 +65,23 @@ post '/tags' do
   Tag.new(params).save()
   redirect to "/transaction"
 end
+
+get '/tags' do
+  @tags = Tag.all()
+  erb( :tags )
+end
+
+#new merchant
+get '/merchants/new' do
+  erb(:new_merchant)
+end
+
+post '/merchants' do
+  Merchant.new(params).save()
+  redirect to "/transaction"
+end
+
+get '/merchants' do
+  @merchants = Merchant.all()
+  erb( :merchants )
+end
