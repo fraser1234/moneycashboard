@@ -1,13 +1,15 @@
 <h4> All Transactions:</h4>
+<p>    </p>
+<p></p>
 <div id="table-wrapper">
   <div id="table-scroll">
-    <table style="width:50%">
+    <table style="width:60%">
       <thead>
         <tr>
-          <th>Merchant</th>
-          <th>Category(tag)</th>
-          <th>Amount</th>
-          <th>Date</th>
+          <th><span class="text">Merchant</span></th>
+          <th><span class="text">Category(tag)</span></th>
+          <th><span class="text">Amount</span></th>
+          <th><span class="text">Date</span></th>
         </tr>
       </thead>
       <% @transactions.each do |transaction| %>
@@ -29,12 +31,12 @@
 <button><a class="button" href="/tags">Category(tag)</a></button>
 </div>
 
-<h4> To enter a new transaction, click below:</h4>
+<h4> To enter a new transaction, category or merchant, click below:</h4>
 <div class="button-centre">
   <button><a class="button" href="/merchants/new">New Merchant</a></button>
 <button><a class="button" href="/transactions/new">New Transaction</a></button>
 <button><a class="button" href="/tags/new">New Tag</a></button>
 </div>
 
-<h4> Your total spending is: £<%= Transaction.total_spend %></h4>
-<h4> Your remaining budget is: £<%= Transaction.budget %></h4>
+<h2> Your total spending is: £<%= Transaction.total_spend %></h2>
+<h2> Your remaining budget is: £<%= Transaction.budget %></h2>
