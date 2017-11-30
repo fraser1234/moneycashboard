@@ -3,7 +3,7 @@
 <% for merchant in @merchants %>
 <div class="button-centre">
 <form action="/transactions/by_merchant/<%= merchant.id %>" method="GET">
-<button><%= merchant.merchant_name %></button>
+<button><a class="button"> <%= merchant.merchant_name %></a></button>
 </form>
 </div>
 <% end %>

@@ -3,7 +3,7 @@
 <% for tag in @tags %>
 <div class="button-centre">
 <form action="/transactions/by_tag/<%= tag.id %>" method="GET">
-<button><%= tag.tag_name %></button>
+<button><a class="button"><%= tag.tag_name %></a></button>
 </form>
 </div>
 <% end %>

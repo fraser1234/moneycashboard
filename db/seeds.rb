@@ -31,22 +31,22 @@ tag4.save()
 #merchant
 
 merchant1 = Merchant.new({
-  "merchant_name" => "Tesco"
+  "merchant_name" => "House of Fraser"
   })
 merchant1.save()
 
 merchant2 = Merchant.new({
-  "merchant_name" => "Asda"
+  "merchant_name" => "Jewson"
   })
 merchant2.save()
 
 merchant3 = Merchant.new({
-  "merchant_name" => "Jewson"
+  "merchant_name" => "Asda"
   })
 merchant3.save()
 
 merchant4 = Merchant.new({
-  "merchant_name" => "House of Fraser"
+  "merchant_name" => "Tesco"
   })
 merchant4.save()
 
