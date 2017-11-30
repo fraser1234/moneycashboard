@@ -113,7 +113,7 @@ class Transaction
   end
 
   def self.by_tag(tag_id)
-    sql = "SELECT *
+    sql = "SELECT transactions.*
     FROM transactions
     INNER JOIN tags
     ON tags.id = transactions.tag_id
@@ -125,7 +125,7 @@ class Transaction
   end
 
   def self.by_merchant(merchant_id)
-    sql = "SELECT *
+    sql = "SELECT transactions.*
     FROM transactions
     INNER JOIN merchants
     ON merchants.id = transactions.merchant_id
